@@ -6,5 +6,5 @@ mkdir -p cache
 	-Duser.home=cache \
 	-Dsun.awt.noerasebackground=true \
 	-Dcom.jagex.configuri=jagex-jav://oldschool.runescape.com/jav_config.ws \
-	-jar jagexappletviewer.jar \
+	-cp "${JAR:-jagexappletviewer.jar}" jagexappletviewer \
 	"$(basename "${PWD}")"

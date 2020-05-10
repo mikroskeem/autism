@@ -1,0 +1,14 @@
+{:deps
+ {
+  ;;runescape/jar {:local/root "./remapped.jar"}
+  nrepl {:mvn/version "0.7.0"}
+  cider/cider-nrepl {:mvn/version "0.25.0-SNAPSHOT"}
+  org.ow2.asm/asm {:mvn/version "8.0.1"}
+  org.ow2.asm/asm-commons {:mvn/version "8.0.1"}
+  org.ow2.asm/asm-tree {:mvn/version "8.0.1"}
+  ;;net.fabricmc/tiny-remapper {:mvn/version "0.2.2.68"}
+  net.fabricmc/tiny-mappings-parser {:mvn/version "0.2.2.14"}
+  com.google.guava/guava {:mvn/version "29.0-jre"}
+  }
+ :mvn/repos
+ {"modmuss50" {:url "http://maven.modmuss50.me/"}}}
