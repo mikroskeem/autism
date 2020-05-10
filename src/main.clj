@@ -49,7 +49,7 @@
   (let [av-url (-> (java.io.File. "jagexappletviewer.jar")
                    .toURI
                    .toURL)
-        applet-mappings (remapper/load-mappings "./av_mappings.tiny")
+        applet-mappings (remapper/load-mappings "./av_mappings.v2")
         sys-cl (ClassLoader/getSystemClassLoader)
         new-cl (transformer/new-transformer-classloader sys-cl
                                                         [av-url] [#'rt/transformer
