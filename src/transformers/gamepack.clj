@@ -18,8 +18,8 @@
                  (doto (asm/new-insnlist)
                    (asm/install-fn-call #'gamepack-hooks/gamepack-chat->add-message
                                         :pop-result true
+                                        :static-context true
                                         :override-arg-count 4
-                                        ;; Parameters shift by one for static methods
                                         :pre-call-insns [(asm/load-var 0 :int)
                                                          (asm/box-primitive :int)
                                                          (asm/load-var 1)

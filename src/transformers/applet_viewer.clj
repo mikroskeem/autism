@@ -63,11 +63,8 @@
                                                  :override-arg-count 1
                                                  :pre-call-insns [(asm/load-var 2) ;; (ZLjava/lang/String;), we care only about resource name
                                                                   ])
-                            (.add (org.objectweb.asm.tree.TypeInsnNode.
-                                   org.objectweb.asm.Opcodes/CHECKCAST
-                                   "[B"))
-                            (.add (org.objectweb.asm.tree.InsnNode.
-                                   org.objectweb.asm.Opcodes/ARETURN)))))
+                            (.add (asm/check-cast "[B"))
+                            (.add (asm/return)))))
 
                (asm/class-visitor->bytes cn))
 
@@ -80,8 +77,7 @@
                (when-let [create (first (filter #(= (.-name %1) "create") methods))]
                  (doto (.-instructions create)
                    ;; In reverse order - insert prepends.
-                   (.insert (org.objectweb.asm.tree.InsnNode.
-                             org.objectweb.asm.Opcodes/IRETURN))
+                   (.insert (asm/return :bool))
                    (.insert (org.objectweb.asm.tree.InsnNode.
                              org.objectweb.asm.Opcodes/ICONST_0))))
 

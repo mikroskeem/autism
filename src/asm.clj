@@ -77,6 +77,17 @@
     (MethodInsnNode. Opcodes/INVOKESTATIC
                      owner "valueOf" sig false)))
 
+(defn return
+  ([] (return :object))
+  ([type]
+   (InsnNode. (condp = type
+                :object Opcodes/ARETURN
+                :int Opcodes/IRETURN
+                :bool Opcodes/IRETURN))))
+
+(defn check-cast [type]
+  (TypeInsnNode. Opcodes/CHECKCAST type))
+
 (defn throw-unsupported-operation-exception []
   (throw (UnsupportedOperationException.)))
 
@@ -89,12 +100,14 @@
 
 (defn install-fn-call [insn-list fn & {:keys [load-this load-params
                                               pop-result override-arg-count
-                                              pre-call-insns]
+                                              pre-call-insns
+                                              static-context]
                                        :or {load-this false
                                             load-params 0
                                             pop-result false
                                             override-arg-count nil
-                                            pre-call-insns nil}}]
+                                            pre-call-insns nil
+                                            static-context false}}]
   
   ;; Insert Clojure.var(String)
   (let [{:keys [ns name]} (meta fn)
@@ -111,12 +124,16 @@
              false))))
 
   (if load-this
-    (.add insn-list (load-var 0)))
+    (if static-context
+      (throw (ex-info "Cannot load `this` in static context" {}))
+      (.add insn-list (load-var 0))))
 
   (if (< 0 load-params)
     (doseq [i (range load-params)]
       ;; TODO: inspect method signature and add boxing instructions
-      (.add insn-list (load-var (+ i 1)))))
+      (.add insn-list (load-var (+ (if static-context
+                                     0 1)
+                                   i)))))
 
   (if (and (some? pre-call-insns) (not (empty? pre-call-insns)))
     (doseq [insn pre-call-insns]
