@@ -1,0 +1,4 @@
+108 = ? "Welcome to Old School Runescape." appears on this
+105 = Game
+0 = Game, but failure messages (You need level X to do Y)
+2 = Public
