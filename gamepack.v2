@@ -1,54 +1,112 @@
 tiny	2	0	intermediary	named
-c	bc	MouseWheelHandler
-	m	(Ljava/awt/Component;)V	w	addMouseWheelListener
-	m	(Ljava/awt/Component;)V	e	removeMouseWheelListener
-	m	(Ljava/awt/event/MouseWheelEvent;)V	mouseWheelMoved	mouseWheelMoved
-		p	1		event
-c	lm	SocketReader
+c	lm	net/runescape/oldschool/SocketReader
 	f	Ljava/io/InputStream;	m	input
 	f	Ljava/lang/Thread;	x	thread
 	m	(Ljava/io/InputStream;I)V	<init>	<init>
 		p	2		unused
 	f	Ljava/io/IOException;	q	lastIoException
-c	be	ImageLoader
-	m	([B)Lla;	w	loadImage
-c	jm	jm
-	m	()[Lga;	e	toArrayTwo
-	m	(Ljava/lang/Object;)Z	j	eq2
-	m	(Ljava/lang/Object;)Z	l	eq0
-	m	(Ljava/lang/Object;)Z	r	eq1
-	m	()I	al	hashCode0
-c	lo	SocketWriter
+c	ln	net/runescape/oldschool/NodeHashTable
+	m	(Lga;J)V	m	insertAfter
+	f	[Lga;	m	nodes
+c	lo	net/runescape/oldschool/SocketWriter
 	f	Ljava/io/OutputStream;	m	output
 	f	Ljava/lang/Thread;	x	thread
 	m	()Z	d	tryDisconnect
 	f	Ljava/io/IOException;	q	lastIOException
 	f	Z	z	connected
-c	fj	fj
-	f	Ljava/lang/String;	r	osName
-c	ju	SomeIterator
-	f	Lga;	k	current
-c	fr	HomeCallInfo
-	f	Ljava/lang/Object;	t	inputStream
-	f	I	q	homePort
-	f	Ljava/lang/Object;	z	homeAddress
-c	fs	TaskHandler
-	f	Ljava/lang/String;	m	javaVersion
-	f	Ljava/lang/String;	x	javaVendor
-c	hw	hw
+c	hm	hm
+	m	(Ljava/lang/String;ZLjava/lang/String;ZI)V	m	openURL
+		p	0	string1	url
+c	lq	net/runescape/oldschool/Archive
+c	lt	lt
+	m	(Lhe;IIIB)V	ke	ke
+		p	4	byte5	alwaysSeven
+c	lw	net/runescape/oldschool/NodeHashTableIterator
+	m	()V	q	start
+	m	()Z	d	hasNext1
+	m	(Lln;)V	<init>	<init>
+		p	1	ln	nht
+	f	Lln;	x	nodeHashTable
+	m	()Ljava/lang/Object;	x	next1
+	f	Lga;	d	last
+	f	I	k	idx
+	f	Lga;	m	first
+c	ht	ht
+	f	[Ljava/lang/String;	i	possibleCacheDirectories
+c	hu	net/runescape/oldschool/UtilClass3
+c	lz	net/runescape/oldschool/UtilClass4
+c	hw	net/runescape/oldschool/hw
 	m	(I)J	x	getTimeRun
 		p	0		unused
-c	dw	dw
+	m	([BI)[B	at	at
+		p	0	arr	buf
+c	hx	net/runescape/oldschool/ConstMessages
+	f	Ljava/lang/String;	p	loadingWait
+	f	Ljava/lang/String;	e	trustThisComputer
+	f	Ljava/lang/String;	f	loadedConfig
+	f	Ljava/lang/String;	ks	off
+	f	Ljava/lang/String;	d	hidden
+	f	Ljava/lang/String;	z	discard
+	f	Ljava/lang/String;	s	trustThisComputer2
+	f	Ljava/lang/String;	q	Continue
+	f	Ljava/lang/String;	kf	clickToSwitch
+	f	Ljava/lang/String;	u	reconnecting
+	f	Ljava/lang/String;	v	select
+	f	Ljava/lang/String;	k	drop
+	f	Ljava/lang/String;	t	Null
+	f	Ljava/lang/String;	kc	full
+	f	Ljava/lang/String;	x	membersObject
+	f	Ljava/lang/String;	au	visitSupportPage
+	f	Ljava/lang/String;	m	take
+	m	(IS)Lii;	m	getReleaseType
+		p	1	short2	neverSixThousand
+		p	0	integer	type
+	f	Ljava/lang/String;	n	connectionLost
+	f	Ljava/lang/String;	ka	loading
+	f	Ljava/lang/String;	w	ok
+c	dw	net/runescape/oldschool/PCMPlayer
 	f	Ljava/util/concurrent/ScheduledExecutorService;	z	scheduledExecutor
-c	kb	kb
-	f	[B	v	arr
-c	mf	FatalClientException
+c	mb	net/runescape/oldschool/RandomAccessFileWrapper
+	f	J	k	amountRead
+	m	([BII)I	ae	read2
+		p	1	arrby	array
+		p	2	n	offset
+		p	3	n2	length
+	m	()J	a	size0
+	m	()J	c	size2
+	m	([BII)I	f	read
+		p	3	n2	length
+		p	1	arrby	array
+		p	2	n	offset
+	m	(J)V	q	doSeek
+		p	1	l	amount
+	m	([BIIB)V	m	write
+		p	2	n	offset
+		p	1	arrby	array
+		p	4	by	unused
+		p	3	n2	length
+	m	(J)V	x	seek
+		p	1	l	amount
+	m	()J	o	size1
+	m	(Ljava/io/File;Ljava/lang/String;J)V	<init>	<init>
+		p	1	file	theFile
+		p	2	string	mode
+		p	3	l	maxLen
+	f	Ljava/io/RandomAccessFile;	x	randomAccessFile
+	m	(Z)V	i	close
+		p	1	bl	unused
+c	mc	net/runescape/oldschool/UtilClass7
+c	ia	ia
+	m	(Ljava/lang/Throwable;I)Ljava/lang/String;	k	processThrowable
+		p	1	integer	dummy
+	f	Ljava/util/zip/CRC32;	b	crc32
+c	mf	net/runescape/oldschool/FatalClientException
 	m	(Ljava/lang/String;Ljava/lang/Throwable;)V	d	reportException2
 		p	0		message
 		p	1		t
-	f	Ljava/lang/String;	m	username
 	m	(Ljava/lang/Throwable;)Ljava/lang/String;	n	n
 		p	0		t
+	f	Ljava/lang/String;	m	username
 	f	Ljava/lang/String;	w	message
 	f	I	k	revision
 	m	(Ljava/lang/Throwable;Ljava/lang/String;)V	<init>	<init>
@@ -57,30 +115,233 @@ c	mf	FatalClientException
 	m	(Ljava/lang/Throwable;)Ljava/lang/String;	p	parseStackTrace
 		p	0		t
 	m	(Ljava/lang/Throwable;Ljava/lang/String;)Lmf;	z	wrap1
+	f	Ljava/lang/Throwable;	v	cause
 	m	(Ljava/lang/String;Ljava/lang/Throwable;)V	w	reportException
 		p	0		message
 		p	1		t
-	f	Ljava/lang/Throwable;	v	cause
-	f	Ljava/applet/Applet;	x	applet
 	m	(Ljava/lang/Throwable;Ljava/lang/String;)Lmf;	q	wrap0
-c	mn	StringCheckUtility
+	f	Ljava/applet/Applet;	x	applet
+c	ic	net/runescape/oldschool/UtilClass11
+c	mi	mi
+	f	Liv;	bk	game
+c	eb	eb
+	m	(ILjava/lang/String;Ljava/lang/String;I)V	m	addGameMessage
+		p	2	string3	message
+		p	1	string2	sender
+c	ig	net/runescape/oldschool/UtilClass12
+c	ih	net/runescape/oldschool/Archive2
+c	aa	aa
+	f	Lclient;	ag	client
+c	ii	EnumReleaseType
+	m	()[Lii;	k	values2
+	f	Lii;	k	RELEASE_CANDIDATE
+	m	()[Lii;	w	values
+	m	(Ljava/lang/String;I)V	<init>	<init>
+		p	2	integer	ordinal
+		p	1	string	name
+	f	Lii;	d	WORK_IN_PROGRESS
+	m	()[Lii;	d	values3
+	f	I	v	ordinal
+	f	Ljava/lang/String;	w	name
+	f	Lii;	x	LIVE
+	f	Lii;	m	BUILDLIVE
+c	ab	ab
+	f	Ljava/lang/String;	c	userHome
+c	mn	net/runescape/oldschool/StringCheckUtility
 	m	(Ljava/lang/CharSequence;)Ljava/lang/String;	m	stringChecker
 		p	0		string
-c	kn	kn
+c	mp	net/runescape/oldschool/OSInfoAnalyzer
+c	mq	mq
+	m	(Lkb;I)V	x	x
+		p	1	kb	buf
+		p	2	integer	i
+	m	(Lkb;)V	d	d
+		p	1	kb	buf
+	m	(Lkb;)V	k	k
+		p	1	kb	buf
+c	mr	mr
+	f	[C	k	glyphs
+	f	[C	d	symbols
+c	ms	ms
+	f	Lmb;	m	rafWrapper
+c	ak	ak
+	m	(Ljava/lang/String;ZI)Ljava/lang/String;	kh	buildJagexUrl
+c	is	is
+	f	C	k	theChar
+	m	()Z	h	isTheCharEqualToS
+	f	Z	v	imInitialized
+c	mw	net/runescape/oldschool/GzipDecompressor
+	m	(III)V	<init>	<init>
+		p	1		unused1
+		p	2		unused2
+		p	3		unused3
+	m	(Lkb;[B)V	m	m
+		p	2		array
+		p	1	kb	buf
+	f	Ljava/util/zip/Inflater;	x	inflater
+c	mx	net/runescape/oldschool/mx
+	f	Ljava/lang/String;	s	string
+	f	Lmx;	x	oldScape
+	f	Lmx;	t	defaultValue
+	m	(IILjava/lang/String;Ljava/lang/String;Z[Lmx;)V	<init>	<init>
+		p	3		string
+		p	6		unused2
+		p	5		unused1
+c	my	net/runescape/oldschool/IntegerConstants
+	f	I	m	fourth
+	f	I	v	second
+	f	I	q	fifth
+	f	I	d	third
+	f	I	x	first
+c	an	an
+	m	(Ljava/lang/String;II)Z	k	openURL
+		p	0	string	url
+c	iv	net/runescape/oldschool/EnumStudioGame
+	f	Liv;	d	gameFour
+	f	Liv;	x	runescape
+	f	Liv;	m	stellardawn
+	f	Liv;	w	gameFive
+	f	Liv;	v	oldScape
+	f	Liv;	k	gameThree
+c	ao	net/runescape/oldschool/WorldMapRegion
+	f	Llq;	ss	masterDisk
+c	aw	net/runescape/oldschool/aw
+	m	(Ljava/lang/Throwable;Ljava/lang/String;)Lmf;	m	handleUnexpectedException
+c	ja	net/runescape/oldschool/UtilClass0
+c	ay	ay
+	m	(Lkb;)V	ai	ai
+		p	1	kb	buf
+c	jb	jb
+	f	Lgl;	bt	selected
+c	jc	jc
+	f	Ljava/lang/String;	o	osName
+c	bc	net/runescape/oldschool/MouseWheelHandler
+	m	(Ljava/awt/Component;)V	w	addMouseWheelListener
+	f	I	x	rotation
+	m	(Ljava/awt/event/MouseWheelEvent;)V	mouseWheelMoved	mouseWheelMoved
+		p	1		event
+	m	(Ljava/awt/Component;)V	e	removeMouseWheelListener
+c	fh	net/runescape/oldschool/JagexCache
+	f	Lms;	n	jagexCacheFile
+c	jm	net/runescape/oldschool/jm
+	m	()[Lga;	e	toArrayTwo
+	m	(Ljava/lang/Object;)Z	j	eq2
+	m	(Ljava/lang/Object;)Z	l	eq0
+	m	(Ljava/lang/Object;)Z	r	eq1
+	m	()I	al	hashCode0
+c	be	net/runescape/oldschool/ImageLoader
+	m	([B)Lla;	w	loadImage
+c	fj	net/runescape/oldschool/OSNameHolder
+	f	Ljava/lang/String;	r	osName
+c	jo	net/runescape/oldschool/UtilClass6
+c	jp	net/runescape/oldschool/UtilClass2
+c	fq	fq
+	m	()I	s	getRotation
+	m	(I)I	k	getRotation
+		p	1	n	unused
+c	ju	net/runescape/oldschool/SomeIterator
+	f	Lga;	k	current
+c	fr	net/runescape/oldschool/HomeCallInfo
+	f	Ljava/lang/Object;	t	inputStream
+	f	I	q	homePort
+	f	Ljava/lang/Object;	z	homeAddress
+c	fs	net/runescape/oldschool/TaskHandler
+	f	Ljava/lang/String;	m	javaVersion
+	f	Ljava/lang/String;	x	javaVendor
+c	fu	fu
+	m	(J)V	x	sleepFor
+		p	0	long1	unknownTimeunit
+c	br	net/runescape/oldschool/ClientApplet
+	m	(Ljava/lang/String;)V	be	copyString
+	f	Ljava/lang/management/GarbageCollectorMXBean;	ay	gcBean
+	m	()Z	cr	isSafeDocumentBase
+	f	Ljava/awt/EventQueue;	ax	eventQueue
+	m	(I)Ljava/awt/Container;	ax	getContainer
+		p	1	integer	dumbValue
+	f	Ljava/awt/Frame;	ar	frame
+	f	Z	q	exiting
+	m	(I)V	as	as
+		p	1	integer	dummy
+	m	(Ljava/awt/event/FocusEvent;)V	i	i
+		p	1	focusEvent	event
+	m	()Z	ef	hasFrame
+	m	()V	bd	setupClipboard
+	f	Ljava/awt/Canvas;	af	canvas
+	f	Z	az	focused
+	m	(Ljava/awt/event/FocusEvent;)V	a	a
+		p	1	focusEvent	event
+	f	Ljava/awt/datatransfer/Clipboard;	aa	clipboard
+	m	(Ljava/awt/event/FocusEvent;)V	c	c
+		p	1	focusEvent	event
+	m	(Ljava/awt/event/FocusEvent;)V	o	o
+		p	1	focusEvent	event
+	m	(Ljava/awt/event/FocusEvent;)V	f	f
+		p	1	focusEvent	event
+c	jz	jz
+	m	(Lge;)V	m	add
+c	bs	bs
+	m	(Ljava/lang/String;ILjava/lang/String;B)Z	d	windowsOpenURL
+		p	0	string1	url
+		p	3	byte4	neverSeventeen
+c	bt	net/runescape/oldschool/UtilClass10
+	m	(Ljava/lang/String;ZLjava/lang/String;Z)V	z	z
+		p	0	string1	url
+	f	Ljava/lang/String;	m	osName
+	f	Ljava/applet/Applet;	x	applet
+	m	(Ljava/lang/String;B)V	fm	doCheat
+		p	1	byte2	neverZero
+		p	0	string	cheat
+c	fy	net/runescape/oldschool/SoftReferenceHolder
+	m	(Ljava/lang/Object;I)V	<init>	<init>
+		p	2	integer	i
+		p	1	object	obj
+	f	Ljava/lang/ref/SoftReference;	x	ref
+c	by	net/runescape/oldschool/Message
+	f	I	x	count
+c	kb	net/runescape/oldschool/JagexBuffer
+	m	(J)Ljava/lang/String;	k	generateString
+		p	0	long1	len
+	f	[B	v	arr
+c	kc	net/runescape/oldschool/UtilClass5
+c	client	net/runescape/oldschool/Client
+	f	I	mt	modLevel
+	f	I	nv	cycleCounter
+	f	Lmm;	sp	osInfoAnalyzer
+	f	Z	ct	displayFPS
+	m	(Ljava/lang/String;)V	om	doCheat
+	f	[Lb;	sd	grandExchangeOffers
+	f	I	os	chatCycle
+	m	(Ljava/lang/String;)V	zc	storeSettingsCookie
+	f	[Lla;	ps	loadedImageArray
+c	ga	net/runescape/oldschool/Node
+	m	()V	fd	remove
+c	ge	net/runescape/oldschool/DoublyNode
+	m	()V	cb	removeItself1
+	f	Lge;	cy	next
+	f	J	cz	key
+	m	()V	cy	removeItself
+	m	()V	cz	removeItself2
+	f	Lge;	cb	prev
+c	ce	ce
+	m	(Ljava/lang/String;ZZI)V	x	openURL
+		p	0	string	url
+c	km	km
+	f	Ljava/awt/FontMetrics;	ab	fontMetrics
+c	b	net/runescape/oldschool/GrandExchangeOffer
+c	kn	net/runescape/oldschool/UtilityClass3
 	m	(II)Ljava/lang/String;	m	getColHexTag
 		p	1		unused
 		p	0		colHex
-c	mp	OSInfoAnalyzer
-c	e	e
-	m	()V	q	shutdown
-	f	Ljava/util/concurrent/ExecutorService;	x	executorService
-c	gl	SelectedLocale
+c	kp	net/runescape/oldschool/TwoLongsHolderUtility
+	f	J	x	firstLong
+	f	J	m	secondLong
+c	gl	net/runescape/oldschool/SelectedLocale
 	f	Ljava/lang/String;	z	countryCode
 	f	I	e	hashCode
 	f	[Lgl;	s	localesArray
+	f	Ljava/lang/String;	t	toStringValue
 	m	(B)[Lgl;	x	getLocalesArray
 		p	0		unused
-	f	Ljava/lang/String;	t	toStringValue
 	f	Lgl;	q	latinAmerican
 	f	Lgl;	x	defaultLocale
 	f	Lgl;	m	german
@@ -92,44 +353,101 @@ c	gl	SelectedLocale
 	f	Lgl;	k	french
 	f	Lgl;	w	dutch
 	f	Lgl;	v	spanish
-c	kp	TwoLongsHolderUtility
-	f	J	x	firstLong
-	f	J	m	secondLong
-c	f	UtilClass1
-c	kq	kq
+c	e	net/runescape/oldschool/e
+	f	Ljava/util/concurrent/Future;	m	future
+	m	()Lkb;	e	getFuture
+	m	()V	q	shutdown
+	m	()Lkb;	t	getFuture2
+	f	Ljava/util/concurrent/ExecutorService;	x	executorService
+c	kq	net/runescape/oldschool/kq
 	m	(Ljava/lang/CharSequence;)J	w	hashString
 	f	[C	x	almostAlphabet
-c	mw	mw
-	m	(III)V	<init>	<init>
-		p	1		unused1
-		p	2		unused2
-		p	3		unused3
-	m	(Lkb;[B)V	m	m
-		p	2		array
-	f	Ljava/util/zip/Inflater;	x	inflater
-c	mx	mx
-	f	Ljava/lang/String;	s	string
-	f	Lmx;	t	defaultValue
-	m	(IILjava/lang/String;Ljava/lang/String;Z[Lmx;)V	<init>	<init>
-		p	3		string
-		p	6		unused2
-		p	5		unused1
-c	my	IntegerConstants
-	f	I	m	fourth
-	f	I	v	second
-	f	I	q	fifth
-	f	I	d	third
-	f	I	x	first
-c	kz	WaitUtilClass
+c	f	net/runescape/oldschool/UtilClass1
+c	kr	kr
+	m	(Lkb;IB)V	z	z
+		p	1	kb	buf
+c	go	go
+	m	(B)I	d	d
+		p	1	byte1	unused
+c	ck	net/runescape/oldschool/Messages
+	f	Ljava/util/Map;	x	messageChannels
+	f	Ljz;	k	messageQueue
+	f	Lln;	m	messagesTable
+c	i	net/runescape/oldschool/GrandExchangeEvent
+	f	Ljava/lang/String;	d	offerName
+	f	I	x	worldId
+	f	Ljava/lang/String;	w	prevOfferName
+	f	Lb;	k	offer
+c	cl	net/runescape/oldschool/ChatChannel
+	f	[Lby;	m	messages
+	m	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V	k	addChatMessage
+		p	4	integer5	unused
+		p	2	string3	messageContents
+		p	0	integer1	channelId
+		p	1	string2	senderName
+	m	(IZZZB)Lih;	fo	newArchive
+		p	4	byte5	neverFiftyTwo
+	m	(I)Lby;	v	getMessageAt2
+		p	1	integer	index
+	m	(IB)Lby;	m	getMessageAt
+		p	2	byte2	neverNull
+		p	1	integer	index
+	m	(I)Lby;	w	getMessageAt
+		p	1	integer	index
+	f	I	k	count
+	m	(I)I	k	size
+		p	1	integer	unused
+	m	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lby;	x	addMessage
+		p	1	integer1	channelId
+		p	5	integer5	garbage
+c	gq	net/runescape/oldschool/PacketBufferNode
+	f	[Lms;	h	cacheIdxFiles
+c	gt	net/runescape/oldschool/Node2
+	f	Lgt;	x	prev
+	f	Lgt;	m	next
+	m	()V	x	remove
+	m	()V	m	remove1
+c	cr	cr
+	f	Ljava/awt/Font;	ap	font
+c	kz	net/runescape/oldschool/WaitUtilClass
 	m	(J)V	w	wait3
 	m	(J)V	m	wait1
 	m	(J)V	d	wait2
 	m	(J)V	k	wait0
-c	la	LoadedImage
-c	aw	aw
-	m	(Ljava/lang/Throwable;Ljava/lang/String;)Lmf;	m	propagateException
-c	ja	UtilityClass0
-c	lc	lc
+c	q	net/runescape/oldschool/SHA256DigestHolder
+	f	Ljava/security/MessageDigest;	x	sha256Digest
+	m	()Ljava/security/MessageDigest;	h	getSha256
+	m	(Ljava/lang/String;J)[B	d	getDigestStringLong
+		p	1	string	s
+		p	2	long2	l
+	m	()Ljava/security/MessageDigest;	w	getSha2561
+	f	Ljava/lang/String;	m	sha256Const
+c	la	net/runescape/oldschool/LoadedImage
+c	cy	net/runescape/oldschool/UtilClass9
+	f	I	ap	accountLockdownFLag
+	f	Ljava/lang/String;	bk	numbers
+	f	I	am	accountStatus
+	f	Ljava/lang/String;	bd	asciiAndSymbols
+c	cz	net/runescape/oldschool/UtilClass8
+	f	Ljava/io/File;	w	file
+c	lc	net/runescape/oldschool/BufferedSocketWrapper
 	f	Llo;	k	writer
 	f	Ljava/net/Socket;	x	socket
+	m	(Ljava/net/Socket;II)V	<init>	<init>
+		p	2	integer2	readerInt
+		p	3	integer3	writerInt
+		p	1	socket	sock
 	f	Llm;	m	reader
+c	y	y
+	m	(Lkb;)V	w	w
+		p	1	kb	buf
+	m	(Lkb;)V	k	k
+		p	1	kb	buf
+	m	(Lkb;)V	d	d
+		p	1	kb	buf
+c	hc	hc
+	f	Lkb;	x	buf
+c	da	NobodyInheritsMe
+	f	I	x	WEIRD_CONSTANT
+c	lj	lj
+	f	[Ljava/lang/String;	a	possibleCacheFileNames
