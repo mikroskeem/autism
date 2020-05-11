@@ -3,7 +3,7 @@
             [hooks]))
 
 (defn transformer [{:keys [name mapped-name class-bytes current-mappings]}]
-  (if-let [transformed 
+  (if-let [transformed
            (cond
              ;; The entry point
              (= mapped-name "jagexappletviewer")
@@ -20,16 +20,16 @@
                      ;; No dumb stuff please
                      (if (and (instance? org.objectweb.asm.tree.LdcInsnNode insn) (= "mac" (.-cst insn)))
                        (.set cl-init insn (asm/ldc "#######")))
-                     
+
                      (recur iter (if (.hasNext iter) (.next iter))))))
-               
+
                (asm/class-visitor->bytes cn))
 
              (= mapped-name "app.GamepackClassLoader")
              (let [cn (-> (asm/new-class-reader class-bytes)
                           (asm/class-reader->visitor (asm/new-class-node)))
                    methods (.-methods cn)]
-               
+
                (when-let [ctor (first (filter #(= (.-name %1) "<init>") methods))]
                  (.insert (.-instructions ctor)
                           (first (filter
@@ -43,10 +43,10 @@
                                                  :load-this true
                                                  :pop-result true)
                             )))
-               
-               
+
+
                (asm/class-visitor->bytes cn))
-             
+
              (= mapped-name "app.GamepackSignatureVerifier")
              (let [cn (-> (asm/new-class-reader class-bytes)
                           (asm/class-reader->visitor (asm/new-class-node)))
@@ -68,14 +68,14 @@
                                    "[B"))
                             (.add (org.objectweb.asm.tree.InsnNode.
                                    org.objectweb.asm.Opcodes/ARETURN)))))
-               
+
                (asm/class-visitor->bytes cn))
 
              (= mapped-name "nativeadvert.browsercontrol")
              (let [cn (-> (asm/new-class-reader class-bytes)
                           (asm/class-reader->visitor (asm/new-class-node)))
                    methods (.-methods cn)]
-               
+
                ;; Defuse this class
                (when-let [create (first (filter #(= (.-name %1) "create") methods))]
                  (doto (.-instructions create)
@@ -84,10 +84,10 @@
                              org.objectweb.asm.Opcodes/IRETURN))
                    (.insert (org.objectweb.asm.tree.InsnNode.
                              org.objectweb.asm.Opcodes/ICONST_0))))
-               
-               
+
+
                (asm/class-visitor->bytes cn))
-             
+
              :else
              nil)]
     (do

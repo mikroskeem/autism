@@ -40,9 +40,14 @@
 (defn unmap-class-name [mapper new]
   (.mapClass (:b mapper) new))
 
-(defn create-asm-remapping-adapter [cv mappings]
-  (ClassRemapper.
-   cv
-   (.getRemapper
-    (-> mappings :tree AsmRemapperFactory.)
-    "intermediary" "named")))
+(defn create-asm-remapping-adapter
+  ([cv mappings]
+   (create-asm-remapping-adapter cv mappings true))
+  ([cv mappings deobf]
+   (let [from (if deobf "intermediary" "named")
+         to (if deobf "named" "intermediary")]
+     (ClassRemapper.
+      cv
+      (.getRemapper
+       (-> mappings :tree AsmRemapperFactory.)
+       from to)))))

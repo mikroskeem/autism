@@ -49,7 +49,7 @@
 
 (defn class-node-accept [^ClassNode cn visitor-fn]
   (let [new-cn (new-class-node)]
-    (.accept new-cn (visitor-fn cn))
+    (.accept cn (visitor-fn new-cn))
     new-cn))
 
 (defmacro new-insnlist []
@@ -67,12 +67,12 @@
 (defn throw-unsupported-operation-exception []
   (throw (UnsupportedOperationException.)))
 
-(defn return-null [insn-list]
-  (doto insn-list
-    (.add (org.objectweb.asm.tree.InsnNode.
-           Opcodes/ACONST_NULL))
-    (.add (org.objectweb.asm.tree.InsnNode.
-           Opcodes/ARETURN))))
+(defn return-null
+  ([] (-> (new-insnlist) return-null))
+  ([insn-list]
+   (doto insn-list
+     (.add (InsnNode. Opcodes/ACONST_NULL))
+     (.add (InsnNode. Opcodes/ARETURN)))))
 
 (defn install-fn-call [insn-list fn & {:keys [load-this load-params
                                               pop-result override-arg-count
