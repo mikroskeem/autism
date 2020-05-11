@@ -20,14 +20,8 @@
                                         :pop-result true
                                         :override-arg-count 4
                                         ;; Parameters shift by one for static methods
-                                        :pre-call-insns [(org.objectweb.asm.tree.VarInsnNode.
-                                                          org.objectweb.asm.Opcodes/ILOAD 0)
-                                                         (org.objectweb.asm.tree.MethodInsnNode.
-                                                          org.objectweb.asm.Opcodes/INVOKESTATIC
-                                                          "java/lang/Integer"
-                                                          "valueOf"
-                                                          "(I)Ljava/lang/Integer;"
-                                                          false)
+                                        :pre-call-insns [(asm/load-var 0 :int)
+                                                         (asm/box-primitive :int)
                                                          (asm/load-var 1)
                                                          (asm/load-var 2)
                                                          (asm/load-var 3)]))))

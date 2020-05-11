@@ -61,8 +61,21 @@
 (defn ldc [value]
   (LdcInsnNode. value))
 
-(defn load-var [n]
-  (VarInsnNode. Opcodes/ALOAD n))
+(defn load-var
+  ([n] (load-var n :object))
+  ([n type]
+   (VarInsnNode. (condp = type
+                   :int Opcodes/ILOAD
+                   :object Opcodes/ALOAD)
+                 n)))
+
+(defn box-primitive [type]
+  (let [[owner sig] (condp = type
+                      :int ["java/lang/Integer" "(I)Ljava/lang/Integer;"]
+                      :bool ["java/lang/Boolean" "(Z)Ljava/lang/Boolean;"]
+                      )]
+    (MethodInsnNode. Opcodes/INVOKESTATIC
+                     owner "valueOf" sig false)))
 
 (defn throw-unsupported-operation-exception []
   (throw (UnsupportedOperationException.)))
