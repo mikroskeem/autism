@@ -2,3 +2,4 @@
 105 = Game
 0 = Game, but failure messages (You need level X to do Y)
 2 = Public
+3 = Private messages
