@@ -59,10 +59,9 @@
                                                  :load-this true
                                                  :pop-result true)
                             (asm/install-fn-call #'hooks/gamepack-signature-verifier->get-verified-resource
+                                                 :method-desc (.-desc get-verified-resource)
                                                  :load-this true
-                                                 :override-arg-count 1
-                                                 :pre-call-insns [(asm/load-var 2) ;; (ZLjava/lang/String;), we care only about resource name
-                                                                  ])
+                                                 :load-params 2)
                             (.add (asm/check-cast "[B"))
                             (.add (asm/return)))))
 

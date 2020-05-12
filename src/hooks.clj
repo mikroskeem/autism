@@ -31,7 +31,7 @@
              (println "Hooked into gamepack classloader, cl =" self)
              (swap! gamepack-cl assoc :cl self))))
 
-(defn gamepack-signature-verifier->get-verified-resource [self resource-name]
+(defn gamepack-signature-verifier->get-verified-resource [self unused resource-name]
   (try
     (if (and (not (clojure.string/starts-with? resource-name "java."))
              (clojure.string/ends-with? resource-name ".class"))
