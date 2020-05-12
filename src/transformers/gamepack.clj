@@ -17,14 +17,10 @@
         (.insert (.-instructions add-message)
                  (doto (asm/new-insnlist)
                    (asm/install-fn-call #'gamepack-hooks/gamepack-chat->add-message
+                                        :method-desc (.-desc add-message)
                                         :pop-result true
-                                        :static-context true
-                                        :override-arg-count 4
-                                        :pre-call-insns [(asm/load-var 0 :int)
-                                                         (asm/box-primitive :int)
-                                                         (asm/load-var 1)
-                                                         (asm/load-var 2)
-                                                         (asm/load-var 3)]))))
+                                        :static-context (asm/is-static? (.-access add-message))
+                                        :load-params 4))))
 
       (asm/class-visitor->bytes
        (asm/class-node-accept
