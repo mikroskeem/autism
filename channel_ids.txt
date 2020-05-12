@@ -1,5 +1,5 @@
 108 = ? "Welcome to Old School Runescape." appears on this
 105 = Game
-0 = Game, but failure messages (You need level X to do Y)
+0 = Game, but failure messages (You need level X to do Y) or music track unlocking messages
 2 = Public
 3 = Private messages
