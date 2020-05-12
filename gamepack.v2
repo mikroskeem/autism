@@ -2,6 +2,9 @@ tiny	2	0	intermediary	named
 c	hm	hm
 	m	(Ljava/lang/String;ZLjava/lang/String;ZI)V	m	openURL
 		p	0	string1	url
+c	hr	net/runescape/oldschool/UtilClass15
+	m	(IB)Liq;	m	m
+		p	1	byte2	dummy
 c	ht	ht
 	f	[Ljava/lang/String;	i	possibleCacheDirectories
 c	hu	net/runescape/oldschool/UtilClass3
@@ -44,7 +47,7 @@ c	ig	net/runescape/oldschool/UtilClass12
 c	ih	net/runescape/oldschool/Archive2
 c	aa	aa
 	f	Lclient;	ag	client
-c	ii	EnumReleaseType
+c	ii	net/runescape/oldschool/EnumReleaseType
 	m	()[Lii;	k	values2
 	f	Lii;	k	RELEASE_CANDIDATE
 	m	()[Lii;	w	values
@@ -75,6 +78,11 @@ c	iv	net/runescape/oldschool/EnumStudioGame
 	f	Liv;	w	gameFive
 	f	Liv;	v	oldScape
 	f	Liv;	k	gameThree
+c	iw	iw
+	m	(II)Ljc;	x	x
+		p	1	integer2	dummy
+	m	(II)Lel;	d	d
+		p	2	integer2	dummy
 c	ao	net/runescape/oldschool/WorldMapRegion
 	f	Llq;	ss	masterDisk
 c	aw	net/runescape/oldschool/aw
@@ -151,7 +159,15 @@ c	kb	net/runescape/oldschool/JagexBuffer
 	m	(J)Ljava/lang/String;	k	generateString
 		p	0	long1	len
 	f	[B	v	arr
+c	bz	bz
+	m	(Lhe;IIII)V	km	km
+		p	4	integer5	dummy
+	m	(I)Z	x	x
+		p	1	integer	dummy
 c	kc	net/runescape/oldschool/UtilClass5
+c	kk	net/runescape/oldschool/CharacterUtil
+	m	(CLgl;)I	z	z
+		p	1	gl	locale
 c	ce	ce
 	m	(Ljava/lang/String;ZZI)V	x	openURL
 		p	0	string	url
@@ -175,9 +191,15 @@ c	kq	net/runescape/oldschool/kq
 	m	(Ljava/lang/CharSequence;)J	w	hashString
 	f	[C	x	almostAlphabet
 c	f	net/runescape/oldschool/UtilClass1
+	m	(Lkj;IS)V	w	w
+		p	2	short3	dummy
 c	kr	kr
 	m	(Lkb;IB)V	z	z
 		p	1	kb	buf
+		p	3	byte3	dummy
+c	ks	net/runescape/oldschool/UtilClass17
+	m	(Liy;Liy;ZII)V	k	k
+		p	4	integer5	dummy
 c	ck	net/runescape/oldschool/Messages
 	f	Ljava/util/Map;	x	messageChannels
 	f	Ljz;	k	messageQueue
@@ -209,6 +231,19 @@ c	cl	net/runescape/oldschool/ChatChannel
 	m	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lby;	x	addMessage
 		p	1	integer1	channelId
 		p	5	integer5	garbage
+c	kw	kw
+	m	(I)Z	p	p
+		p	1	integer	dummy
+	m	(Lku;I)Ljd;	u	u
+		p	2	integer	dummy
+	m	(ILce;ZB)I	v	v
+		p	3	byte4	dummy
+	f	Ljava/util/HashMap;	z	ku2jd
+	m	(Lku;I)Z	n	n
+		p	2	integer	dummy
+c	ky	ky
+	m	(Lky;I)I	x	x
+		p	2	integer	dummy
 c	cr	cr
 	f	Ljava/awt/Font;	ap	font
 c	kz	net/runescape/oldschool/WaitUtilClass
@@ -267,11 +302,14 @@ c	lo	net/runescape/oldschool/SocketWriter
 	f	Ljava/io/IOException;	q	lastIOException
 	f	Z	z	connected
 c	lq	net/runescape/oldschool/Archive
+c	lr	net/runescape/oldschool/UtilClass14
 c	lt	lt
 	m	(I)I	m	read
 		p	1	integer	dummy
 	m	(Lhe;IIIB)V	ke	ke
 		p	4	byte5	alwaysSeven
+c	lv	lv
+	f	[Lga;	m	nodes
 c	lw	net/runescape/oldschool/NodeHashTableIterator
 	m	()V	q	start
 	m	()Z	d	hasNext1
@@ -337,15 +375,28 @@ c	mf	net/runescape/oldschool/FatalClientException
 	m	(Ljava/lang/Throwable;Ljava/lang/String;)Lmf;	q	wrap0
 	f	Ljava/applet/Applet;	x	applet
 c	mi	mi
+	m	(Ljava/lang/String;I)V	x	x
+		p	2	integer	dummy
 	f	Liv;	bk	game
+c	mj	mj
+	m	(II)I	x	x
+		p	2	integer2	dummy
 c	eb	eb
 	m	(ILjava/lang/String;Ljava/lang/String;I)V	m	addGameMessage
 		p	2	string3	message
 		p	1	string2	sender
+c	ef	ef
+	m	(Lih;IIIBZI)V	k	k
+		p	6	integer7	dummy
 c	mn	net/runescape/oldschool/StringCheckUtility
 	m	(Ljava/lang/CharSequence;)Ljava/lang/String;	m	stringChecker
 		p	0		string
 c	mp	net/runescape/oldschool/OSInfoAnalyzer
+c	ei	net/runescape/oldschool/UtilClass16
+	m	(Lhe;IIIIIII)V	ji	ji
+		p	7	integer8	dummy
+	m	(S)V	gp	gp
+		p	0	short1	dummy
 c	mq	mq
 	m	(Lkb;I)V	x	x
 		p	1	kb	buf
@@ -362,6 +413,16 @@ c	ek	ek
 		p	2	short3	dummy
 c	ms	ms
 	f	Lmb;	m	rafWrapper
+c	em	em
+	m	(Lfs;III)Ldw;	ap	ap
+		p	3	integer4	dummy
+	m	(Ljava/lang/String;I)Ljava/lang/String;	lc	lc
+		p	1	integer	dummy
+c	en	en
+	m	([BI)Lkx;	p	p
+		p	1	integer	dummy
+	m	(S)V	fu	fu
+		p	0	short1	dummy
 c	mw	net/runescape/oldschool/GzipDecompressor
 	m	(III)V	<init>	<init>
 		p	1		unused1
@@ -399,6 +460,9 @@ c	fa	fa
 	f	Ljava/io/InputStream;	x	inputStream
 	f	Lfs;	w	taskHandler
 c	fe	net/runescape/oldschool/UtilClass13
+c	fg	fg
+	m	(Lke;Lke;I)I	x	x
+		p	3	integer	dummy
 c	fh	net/runescape/oldschool/JagexCache
 	f	Lms;	n	jagexCacheFile
 c	fj	net/runescape/oldschool/OSNameHolder
