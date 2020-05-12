@@ -4,59 +4,59 @@ c	app/w	app/TheCanvas
 c	app/v	app/GamepackClassLoader
 	f	Lapp/k;	c	signatureVerifier
 	m	(Ljava/lang/String;Z)Ljava/lang/Class;	loadClass	loadClass
-		p	1	string	name
-		p	2	bl	initialize
+		p	1		name
+		p	2		initialize
 	m	(Ljava/lang/String;)Ljava/io/InputStream;	getResourceAsStream	getResourceAsStream
-		p	1	string	name
+		p	1		name
 	m	([BZZ)V	<init>	<init>
-		p	1	arrby	unused
-		p	2	bl	isPack200
-		p	3	bl2	isGzip
+		p	1		unused
+		p	2		isPack200
+		p	3		isGzip
 	f	Ljava/security/ProtectionDomain;	b	protectionDomain
 	f	Ljava/util/Hashtable;	a	definedClasses
 c	jagexappletviewer	jagexappletviewer
 	m	(Ljava/net/URI;)V	receiveURI	receiveURI
 		p	0		uri
-	m	()V	a	ensureClassNetscapeJSObject
 	m	([Ljava/lang/String;)V	main	main
 		p	0		args
+	m	()V	a	ensureClassNetscapeJSObject
 	f	Z	a	launching
 c	app/q	app/BackgroundPanel
-c	app/p	app/StringEncryptionUtil
-	m	([BI)Ljava/lang/String;	a	decrypt0
-	f	[I	c	cComponent
-	f	[C	b	bComponent
-	f	[C	a	aComponent
-	m	(BI[BI)Ljava/lang/String;	a	decrypt
 c	app/ba	app/AppletExitHandler
 	m	(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V	a	a
 		p	4		message
 	m	(ILjava/lang/String;)V	a	displayMessage
 	f	Ljava/awt/Dialog;	c	dialog
 	f	Ljava/awt/Button;	a	okButton
+	f	Ljava/awt/Button;	b	quitButton
 	m	(Ljava/lang/String;I)V	a	showMessage
 		p	1		alwaysOne
 		p	0		unused
-	f	Ljava/awt/Button;	b	quitButton
 	f	I	d	shouldAlwaysBeZero
+c	app/p	app/StringEncryptionUtil
+	f	[I	c	cComponent
+	m	([BI)Ljava/lang/String;	a	decrypt0
+	f	[C	b	bComponent
+	m	(BI[BI)Ljava/lang/String;	a	decrypt
+	f	[C	a	aComponent
 c	app/n	app/n
 	f	I	f	unitIncrement
 	f	Ljava/util/LinkedList;	a	integerList
 	m	(I)V	setUnitIncrement	setUnitIncrement
 		p	1		unitIncrement
+	f	Ljava/awt/Image;	j	image
 	m	(I)V	setBlockIncrement	setBlockIncrement
 		p	1		blockIncrement
-	f	Ljava/awt/Image;	j	image
+	f	I	e	visibleAmount
 	m	(I)V	setVisibleAmount	setVisibleAmount
 		p	1		visibleAmount
-	f	I	e	visibleAmount
 	m	(Ljava/awt/event/AdjustmentEvent;B)V	a	a
 		p	1		event
 	f	I	i	i
 	f	I	c	minimum
+	f	I	b	blockIncrement
 	m	(Ljava/awt/event/AdjustmentListener;)V	removeAdjustmentListener	removeAdjustmentListener
 		p	1		listener
-	f	I	b	blockIncrement
 	f	I	l	l
 c	app/t	app/PreferencesStorage
 	m	(Ljava/lang/String;ILjava/lang/String;)V	a	setPreference
@@ -65,11 +65,12 @@ c	app/t	app/PreferencesStorage
 	f	Z	c	cUnused
 	f	Ljava/io/File;	b	preferencesFile
 	m	(BLjava/lang/String;)Ljava/lang/String;	a	getPreference
+		p	0	by	dummy
 		p	1		key
+	f	Ljava/util/Hashtable;	a	preferences
 	m	(Z)V	a	dumpPreferences
 		p	0		dontClear
-	f	Ljava/util/Hashtable;	a	preferences
-	m	(I)V	a	a
+	m	(I)V	a	loadPreferences
 		p	0		unused
 c	app/s	app/ThreeHashtableHolder
 	f	Ljava/util/Hashtable;	a	aTable
@@ -78,26 +79,28 @@ c	app/s	app/ThreeHashtableHolder
 	f	Ljava/util/Hashtable;	d	dTable
 	f	Ljava/lang/String;	b	string
 	f	Ljava/util/Hashtable;	c	cTable
-c	app/r	app/JagexAppletStub
 c	app/da	app/LanguageSelection
 	m	(II)V	a	loadLanguages
 		p	0		languageId
 		p	1		alwaysBeThree
+c	app/r	app/JagexAppletStub
 c	app/ca	app/RectangleHolder
 	m	(Ljava/lang/String;)V	<init>	<init>
 		p	1		rectangleName
-	f	Lapp/m;	b	rectangle
 	f	Ljava/lang/String;	a	rectangleName
+	f	Lapp/m;	b	rectangle
 c	app/aa	app/AppletRunner
 	m	(Ljava/lang/String;Ljava/lang/String;)V	showurl	showURL
 		p	1		url
-	f	Ljava/lang/String;	c	url
 	m	(I)V	a	startThread
+	f	Ljava/lang/String;	c	url
 	f	Lapp/aa;	b	INSTANCE
 c	app/appletviewer	app/JagexAppletViewer
+	f	Lapp/w;	f	theCanvas
 	m	(Ljava/lang/String;Z)Ljava/lang/String;	b	getMessage
 		p	0		messageKey
 	m	()V	removeadvert	removeAdvert
+	f	[Lapp/s;	t	threeHashtableHolderArray
 	m	(Z)V	a	a
 		p	0		unused
 	m	(I)V	doresize	doResize
@@ -109,11 +112,14 @@ c	app/appletviewer	app/JagexAppletViewer
 		p	0		url1
 		p	3		isPack200
 		p	2		baseUrl
+	f	[I	e	actionEvents
+	m	(Ljava/io/File;BLjava/lang/String;)Ljava/io/BufferedReader;	a	getBufferedReader
+		p	2	string	url
 	f	Ljava/awt/Frame;	a	frame
-	f	Ljava/util/Hashtable;	o	messages
 	f	Ljava/awt/Canvas;	d	canvas
+	f	Ljava/util/Hashtable;	o	messages
 	m	(I)V	c	initializeApplet
-		p	0	n2	unused
+		p	0		unused
 c	app/i	app/RestartListener
 c	app/systemclassloader	app/SystemClassLoaderWrapper
 	f	Ljava/lang/String;	JSOBJECT_CLASS_NAME	JSOBJECT_CLASS_NAME_CONST
@@ -123,8 +129,12 @@ c	app/systemclassloader	app/SystemClassLoaderWrapper
 		p	1		name
 c	app/g	app/g
 	f	Ljava/lang/String;	a	contentEncoding
+c	app/f	app/f
+	f	Ljava/awt/Dialog;	a	dialog
+	f	Ljava/awt/List;	b	awtList
 c	app/m	app/InnerRectangleHolder
 	f	Ljava/awt/Rectangle;	b	rect
+	f	Ljava/lang/String;	a	str
 c	app/l	app/JagexWindowAdapter
 	m	(ZI)V	a	a
 		p	2		always1303
@@ -137,16 +147,22 @@ c	app/l	app/JagexWindowAdapter
 		p	0		alwaysTrue
 	f	Z	b	isClosed
 c	app/k	app/GamepackSignatureVerifier
+	f	Ljava/util/Hashtable;	c	signatureHolders2
 	m	([B)V	<init>	<init>
-		p	1	arrby	gamepackBytes
+		p	1		gamepackBytes
+	f	[B	d	certificateBytes
 	f	Lsun/security/pkcs/PKCS7;	e	certificate
 	f	Ljava/util/Hashtable;	a	classBytes
+	f	Ljava/util/Hashtable;	b	signatureHolders
 	m	(ZLjava/lang/String;)[B	a	getVerifiedResource
-		p	1	bl	unused
-		p	2	string	resourceName
+		p	1		unused
+		p	2		resourceName
 c	app/j	app/SignatureHolder
+	f	[B	b	bytes
 	f	Ljava/lang/String;	e	signature
 c	app/a	app/DialogHolder
+	f	Ljava/awt/Dialog;	a	dialog
+c	app/e	app/e
 	f	Ljava/awt/Dialog;	a	dialog
 c	app/d	app/PaintPanel
 c	app/c	app/ExitCloseListener
@@ -154,7 +170,6 @@ c	app/c	app/ExitCloseListener
 c	app/b	app/b
 	f	Ljava/awt/Color;	b	loadingBarColor
 	f	Ljava/awt/FontMetrics;	g	usedFontMetrics
-	f	Ljava/lang/String;	e	loadingText
 	f	Lapp/b;	c	INSTANCE
+	f	Ljava/lang/String;	e	loadingText
 	m	(II)V	a	setProgress
-	f	Ljava/awt/Font;	d	usedFont
