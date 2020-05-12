@@ -1,4 +1,4 @@
-(ns hooks
+(ns hooks.applet-viewer
   (:require [remapper]
             [transformers.gamepack :as gpt]
             [transformer]

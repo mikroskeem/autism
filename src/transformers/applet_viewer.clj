@@ -1,7 +1,7 @@
 (ns transformers.applet-viewer
   (:require [asm]
             [asm.util]
-            [hooks]))
+            [hooks.applet-viewer]))
 
 (defn transformer [{:keys [name mapped-name class-bytes current-mappings]}]
   (if-let [transformed
@@ -41,7 +41,7 @@
                                (.-instructions ctor)))
                   :after
                   (asm.util/insns->
-                   (asm/install-fn-call #'hooks/gamepack-class-loader->ctor->hooked!
+                   (asm/install-fn-call #'hooks.applet-viewer/gamepack-class-loader->ctor->hooked!
                                         :load-this true
                                         :pop-result true))))
 
@@ -57,10 +57,10 @@
                  (asm.util/inject-method
                   get-verified-resource :head
                   (asm.util/insns->
-                   (asm/install-fn-call #'hooks/gamepack-signature-verifier->get-verified-resource->hooked!
+                   (asm/install-fn-call #'hooks.applet-viewer/gamepack-signature-verifier->get-verified-resource->hooked!
                                         :load-this true
                                         :pop-result true)
-                   (asm/install-fn-call #'hooks/gamepack-signature-verifier->get-verified-resource
+                   (asm/install-fn-call #'hooks.applet-viewer/gamepack-signature-verifier->get-verified-resource
                                         :method-desc (.-desc get-verified-resource)
                                         :load-this true
                                         :load-params 2)
@@ -87,7 +87,5 @@
 
              :else
              nil)]
-    (do
-      (println "launcher transformed =" name)
-      transformed)
+    transformed
     class-bytes))

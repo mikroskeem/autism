@@ -2,7 +2,7 @@
   (:require [asm]
             [asm.util]
             [clojure.java.io :as io]
-            [gamepack-hooks]
+            [hooks.gamepack]
             [remapper]))
 
 (defn transformer [{:keys [class-bytes mapped-name current-mappings]}]
@@ -18,7 +18,7 @@
         (asm.util/inject-method
          add-message :head
          (asm.util/insns->
-          (asm/install-fn-call #'gamepack-hooks/gamepack-chat->add-message
+          (asm/install-fn-call #'hooks.gamepack/gamepack-chat->add-message
                                :method-desc (.-desc add-message)
                                :pop-result true
                                :static-context (asm/is-static? (.-access add-message))

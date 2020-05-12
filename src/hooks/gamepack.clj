@@ -1,4 +1,4 @@
-(ns gamepack-hooks
+(ns hooks.gamepack
   (:require [asm]
             [transformer]
             [util]))
