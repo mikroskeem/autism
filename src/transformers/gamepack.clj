@@ -1,5 +1,6 @@
 (ns transformers.gamepack
   (:require [asm]
+            [asm.util]
             [clojure.java.io :as io]
             [gamepack-hooks]
             [remapper]))
@@ -14,13 +15,14 @@
           methods (.-methods cn)]
 
       (when-let [add-message (first (filter #(= (.-name %) "addChatMessage") methods))]
-        (.insert (.-instructions add-message)
-                 (doto (asm/new-insnlist)
-                   (asm/install-fn-call #'gamepack-hooks/gamepack-chat->add-message
-                                        :method-desc (.-desc add-message)
-                                        :pop-result true
-                                        :static-context (asm/is-static? (.-access add-message))
-                                        :load-params 4))))
+        (asm.util/inject-method
+         add-message :head
+         (asm.util/insns->
+          (asm/install-fn-call #'gamepack-hooks/gamepack-chat->add-message
+                               :method-desc (.-desc add-message)
+                               :pop-result true
+                               :static-context (asm/is-static? (.-access add-message))
+                               :load-params 4))))
 
       (asm/class-visitor->bytes
        (asm/class-node-accept
