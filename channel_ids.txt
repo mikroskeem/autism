@@ -3,3 +3,10 @@
 0 = Game, but failure messages (You need level X to do Y) or music track unlocking messages
 2 = Public
 3 = Private messages
+14 = Newspost/announcement on top of the chat
+
+Examples:
+{:type :system, :sender SYSTEM, :message Welcome to Old School RuneScape.} , string5 = nil , integer = 108
+{:type :user, :sender BrokenGodHS, :message Runechat cu0m -Better Odds than Duel Arena & Gam/ble w/o Maxed Acct!} , string5 = nil , integer = 2
+{:type :user, :sender bot___0001, :message AAAAAAAAA} , string5 = nil , integer = 3
+{:type :system, :sender SYSTEM, :message Dare you walk the bloodstained path? Darkmeyer has arrived! - click here for the newspost.|4} , string5 = nil , integer = 14
